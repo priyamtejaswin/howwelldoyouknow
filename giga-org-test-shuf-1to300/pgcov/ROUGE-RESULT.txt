@@ -1,0 +1,1 @@
+PyRougeMetric: {'rouge_1_precision': 0.38298, 'rouge_1_recall': 0.34221, 'rouge_1_f_score': 0.34746, 'rouge_2_precision': 0.16016, 'rouge_2_recall': 0.14946, 'rouge_2_f_score': 0.14898, 'rouge_l_precision': 0.35286, 'rouge_l_recall': 0.31543, 'rouge_l_f_score': 0.32006} 
