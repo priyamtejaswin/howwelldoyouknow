@@ -63,4 +63,69 @@ giga-org-test-shuf-1to300/biset$ find ./
 * **Source/Targets/Hypos:** `./xsum-200/aligned/<model_dir>/`
 * **Models:** `[tconvs2s, presumm_ext_abs, presumm_abs, pgnv, presumm_trans, lead, ext_oracle, bart, convs2s]`
 
-# Metrics
+# Computing metrics and results
+## Pre-computed
+Given the large number of models and metrics involved, we have pre-computed all metrics against all movel outputs, and saved them in csv files. These files are saved for each dataset, in their respective dataset directories and start with `df_*` for each metric. Looking at the CNN/DailyMail files:
+```bash
+~/howwelldoyouknow/cnndm-300$ find ./ -name "df_*.csv"
+./df_berts.csv
+./df_rouge1.csv
+./df_rouge2.csv
+./df_rougeL.csv
+./df_pyramid.csv
+./df_mvrs1.csv
+```
+
+The metrics used for each dataset can be found in the paper. Each file is organized as follows:
+* First row is the header.
+* All rows after the header are in order of the Indices file.
+* First column is the `label` for the sample.
+* All successive columns contain the score for a specific model used for that dataset.
+
+Sample from [CNN/DM ROUGE-1 csv](https://github.com/anonymous-6502/howwelldoyouknow/blob/master/cnndm-300/df_rouge1.csv)
+![sample scores csv](./sample_scores_csv.png)
+
+## Re-compute
+If you wish to compute the metrics yourself, you will have to install some packages. Note that some metrics (like Moverscore, BertScore) might take time.
+
+We use Conda for managing environments. Please install Python 3.6.12 and [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) 4.8.3 . Conda is included with the [Anaconda distribution](https://www.anaconda.com/products/individual). After installing `conda`, run the following commands:
+```bash
+$ conda env create -f environment.yml  # Setup the env.
+$ conda env list
+# conda environments:
+moverscore              /location/
+...
+$ conda activate moverscore
+$ pip install -r requirements.txt  # Install the pip packages.
+```
+
+To get ROUGE scores, run the following script:
+```bash
+$ python compute_rouge.py -h
+usage: compute_rouge.py [-h] prefix_string labels_file results_dir
+
+positional arguments:
+  prefix_string  Prefix string.
+  labels_file    File containing label enums.
+  results_dir    Dir with tgts+hypos.
+
+optional arguments:
+  -h, --help     show this help message and exit
+```
+
+To compute MoverScores, run the following script:
+```bash
+$python compute_mover.py -h
+usage: compute_mover.py [-h] prefix_string labels_file large_hypos large_refs results_dir
+
+positional arguments:
+  prefix_string  Prefix string.
+  labels_file    File containing label enums.
+  large_hypos    Large collection train/test of model generated hypos.
+  large_refs     Large collection train/test of gold targets.
+  results_dir    Dir with label-separated tgts+hypos.
+  
+optional arguments:
+  -h, --help     show this help message and exit
+```
+
