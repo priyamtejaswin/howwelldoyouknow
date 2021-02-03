@@ -1,7 +1,9 @@
 Code and data for "How well do you know your summarization datasets?", submitted to ACL 2021.
 ---
 
-This repository contains the code and data used in the paper titled "How well do you know your summarization datsets?" submitted to [ACL 2021](https://2021.aclweb.org/calls/papers/). From the abstract:
+This repository contains the code and data used in the paper titled "How well do you know your summarization datsets?" submitted to [ACL 2021](https://2021.aclweb.org/calls/papers/). For any clarification, please raise a new [issue](https://github.com/anonymous-6502/howwelldoyouknow/issues) and one of the authors will get back to you.
+
+From the abstract:
 > ... In this study, we manually analyse 600 samples from three popular summarization datasets. Our study is driven by a six-class typology which captures different noise types (missing facts, entities) and degrees of summarization difficulty (extractive, abstractive). We follow with a thorough analysis of 27 state-of-the-art summarization models and 5 popular metrics, and report our key insights ...
 
 We include the following classes in the typology:
