@@ -95,6 +95,9 @@ We use the Jupyter Notebooks in the `notebooks` folder for doing all data analys
 ./analysis_xsum.ipynb  # All analysis for XSum
 ./pretty_heatmaps.ipynb  # Generating high-res heatmaps for the paper
 ```
+Note:
+* If you wish to re-run the notebook, you will have to setup the env and packages mention in the next section.
+* The notebooks contain many plots and images, so they might not load in the first attempt.
 
 ## Re-compute
 If you wish to compute the metrics yourself, you will have to install some packages. Note that some metrics (like Moverscore, BertScore) might take time.
