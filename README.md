@@ -85,10 +85,21 @@ The metrics used for each dataset can be found in the paper. Each file is organi
 Sample from [CNN/DM ROUGE-1 csv](https://github.com/anonymous-6502/howwelldoyouknow/blob/master/cnndm-300/df_rouge1.csv)
 ![sample scores csv](./sample_scores_csv.png)
 
+## Results
+We use the Jupyter Notebooks in the `notebooks` folder for doing all data analysis on the model scores. The different files and their purpose is listed below:
+```bash
+~/howwelldoyouknow/notebooks$ find ./
+./
+./analysis_gigaword.ipynb  # All analysis for Gigaword
+./analysis_cnndm.ipynb  # All analysis for CNN/DM
+./analysis_xsum.ipynb  # All analysis for XSum
+./pretty_heatmaps.ipynb  # Generating high-res heatmaps for the paper
+```
+
 ## Re-compute
 If you wish to compute the metrics yourself, you will have to install some packages. Note that some metrics (like Moverscore, BertScore) might take time.
 
-We use Conda for managing environments. Please install Python 3.6.12 and [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) 4.8.3 . Conda is included with the [Anaconda distribution](https://www.anaconda.com/products/individual). After installing `conda`, run the following commands:
+We use Conda for managing environments. Please install Python 3.6.12 and [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) 4.8.3 . Conda is included with the [Anaconda distribution](https://www.anaconda.com/products/individual). After installing `conda`, run the following commands for each model output and target reference individually:
 ```bash
 $ conda env create -f environment.yml  # Setup the env.
 $ conda env list
@@ -128,4 +139,3 @@ positional arguments:
 optional arguments:
   -h, --help     show this help message and exit
 ```
-
